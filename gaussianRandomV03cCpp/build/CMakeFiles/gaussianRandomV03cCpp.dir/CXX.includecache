@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/gaussRand3.h
+stdio.h
+-
+stdlib.h
+-
+math.h
+-
+
+../include/htmlGraphics.h
+stdio.h
+-
+stdlib.h
+-
+
+/home/mustafa/Documents/cpp_code/gaussianRandomV03cCpp/src/gaussRand3.c
+gaussRand3.h
+/home/mustafa/Documents/cpp_code/gaussianRandomV03cCpp/src/gaussRand3.h
+
+/home/mustafa/Documents/cpp_code/gaussianRandomV03cCpp/src/gaussianRandomV03Cpp.cpp
+stdio.h
+-
+time.h
+-
+gaussRand3.h
+/home/mustafa/Documents/cpp_code/gaussianRandomV03cCpp/src/gaussRand3.h
+htmlGraphics.h
+/home/mustafa/Documents/cpp_code/gaussianRandomV03cCpp/src/htmlGraphics.h
+
+/home/mustafa/Documents/cpp_code/gaussianRandomV03cCpp/src/htmlGraphics.c
+htmlGraphics.h
+/home/mustafa/Documents/cpp_code/gaussianRandomV03cCpp/src/htmlGraphics.h
+

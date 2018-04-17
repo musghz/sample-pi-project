@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="400" height="800" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+mainFunction();
+
+function mainFunction(){
+
+	graphicsLine(50, 380, 50, 380, 200, 20, 20);
+	graphicsLine(83, 375, 83, 380, 200, 20, 20);
+	graphicsLine(116, 324, 116, 380, 200, 20, 20);
+	graphicsLine(150, 161, 150, 380, 200, 20, 20);
+	graphicsLine(183, 34, 183, 380, 200, 20, 20);
+	graphicsLine(216, 160, 216, 380, 200, 20, 20);
+	graphicsLine(250, 325, 250, 380, 200, 20, 20);
+	graphicsLine(283, 375, 283, 380, 200, 20, 20);
+	graphicsLine(316, 380, 316, 380, 200, 20, 20);
+	graphicsLine(50, 690, 50, 780, 20, 20, 200);
+	graphicsLine(83, 690, 83, 780, 20, 20, 200);
+	graphicsLine(116, 690, 116, 780, 20, 20, 200);
+	graphicsLine(150, 689, 150, 780, 20, 20, 200);
+	graphicsLine(183, 690, 183, 780, 20, 20, 200);
+	graphicsLine(216, 689, 216, 780, 20, 20, 200);
+	graphicsLine(250, 689, 250, 780, 20, 20, 200);
+	graphicsLine(283, 690, 283, 780, 20, 20, 200);
+	graphicsLine(316, 690, 316, 780, 20, 20, 200);
+	graphicsPrintString("gaussRand3()", 20, 20, 20, 200, 20, 20);
+	graphicsPrintString("rand()", 20, 420, 20, 20, 20, 200);
+}
+
+function graphicsPixel(x, y, red, green, blue){
+
+	ctx.beginPath();
+	ctx.moveTo(x, y);
+	ctx.lineTo(x+1, y+1);
+	ctx.strokeStyle = "rgb(" + red + "," + green + "," + blue + ")";
+	ctx.stroke();
+	ctx.closePath();
+}
+
+function graphicsLine(x1, y1, x2, y2, red, green, blue){
+
+	ctx.beginPath();
+	ctx.moveTo(x1, y1);
+	ctx.lineTo(x2, y2);
+	ctx.strokeStyle = "rgb(" + red + "," + green + "," + blue + ")";
+	ctx.stroke();
+	ctx.closePath();
+}
+
+function graphicsRectangle(x, y, width, height, red, green, blue){
+
+	ctx.beginPath();
+	ctx.rect(x, y, width, height);
+	ctx.strokeStyle = "rgb(" + red + "," + green + "," + blue + ")";
+	ctx.stroke();
+	ctx.closePath();
+}
+
+function graphicsRectangleFilled(x, y, width, height, red, green, blue){
+
+	ctx.beginPath();
+	ctx.rect(x, y, width, height);
+	ctx.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
+	ctx.fill();
+	ctx.closePath();
+}
+
+function graphicsCircle(x, y, radius, red, green, blue) {
+
+	ctx.beginPath();
+	ctx.arc(x, y, radius, 0, 2*Math.PI);
+	ctx.strokeStyle = "rgb(" + red + "," + green + "," + blue + ")";
+	ctx.stroke();
+	ctx.closePath();
+}
+
+function graphicsCircleFilled(x, y, radius, red, green, blue) {
+
+	ctx.beginPath();
+	ctx.arc(x, y, radius, 0, 2*Math.PI);
+	ctx.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
+	ctx.fill();
+	ctx.closePath();
+}
+
+function graphicsEllipse(x, y, width, height, red, green, blue) {
+
+	ctx.beginPath();
+	ctx.moveTo(x-width/2, y);
+	ctx.bezierCurveTo(x-width/2, y-height/2, x+width/2, y-height/2, x+width/2, y);
+	ctx.bezierCurveTo(x+width/2, y+height/2, x-width/2, y+height/2, x-width/2, y);
+	ctx.strokeStyle = "rgb(" + red + "," + green + "," + blue + ")";
+	ctx.stroke();
+	ctx.closePath();
+}
+
+function graphicsEllipseFilled(x, y, width, height, red, green, blue) {
+
+	ctx.beginPath();
+	ctx.moveTo(x-width/2, y);
+	ctx.bezierCurveTo(x-width/2, y-height/2, x+width/2, y-height/2, x+width/2, y);
+	ctx.bezierCurveTo(x+width/2, y+height/2, x-width/2, y+height/2, x-width/2, y);
+	ctx.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
+	ctx.fill();
+	ctx.closePath();
+}
+
+function graphicsTriangle(x1, y1, x2, y2, x3, y3, red, green, blue) {
+
+	ctx.beginPath();
+	ctx.moveTo(x1, y1);
+	ctx.lineTo(x2, y2);
+	ctx.lineTo(x3, y3);
+	ctx.lineTo(x1, y1);
+	ctx.strokeStyle = "rgb(" + red + "," + green + "," + blue + ")";
+	ctx.stroke();
+	ctx.closePath();
+}
+
+function graphicsTriangleFilled(x1, y1, x2, y2, x3, y3, red, green, blue) {
+
+	ctx.beginPath();
+	ctx.moveTo(x1, y1);
+	ctx.lineTo(x2, y2);
+	ctx.lineTo(x3, y3);
+	ctx.lineTo(x1, y1);
+	ctx.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
+	ctx.fill();
+	ctx.closePath();
+}
+
+function graphicsPrintString(textString, x, y, textSize, red, green, blue){
+
+	ctx.beginPath();
+	ctx.font = textSize + "px Arial";
+	ctx.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
+	ctx.fillText(textString, x, y);
+	ctx.fill();
+	ctx.closePath();
+}
+
+function graphicsPrintInt(number, x, y, textSize, red, green, blue){
+
+	ctx.beginPath();
+	ctx.font = textSize + "px Arial";
+	ctx.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
+	ctx.fillText(number.toString(), x, y);
+	ctx.fill();
+	ctx.closePath();
+}
+
+</script>
+
+</body>
+</html>
